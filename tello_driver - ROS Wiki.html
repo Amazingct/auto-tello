@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+<meta name="google-site-verification" content="CjkdY6BqKWAVmQ78_iSq6J7ZZ9AoL7-CjFVBYGg9FU4">
+<link rel="shortcut icon" href="http://wiki.ros.org/custom/favicon.ico" type="image/ico">
+<link rel="stylesheet" href="tello_driver%20-%20ROS%20Wiki_files/bootstrap.css">
+<script type="text/javascript" async="" src="tello_driver%20-%20ROS%20Wiki_files/ga.js"></script><script src="tello_driver%20-%20ROS%20Wiki_files/jquery-1.js"></script>
+<script src="tello_driver%20-%20ROS%20Wiki_files/bootstrap.js"></script>
+<script type="text/javascript" src="tello_driver%20-%20ROS%20Wiki_files/sorttable.js"></script>
+<script type="text/javascript" src="tello_driver%20-%20ROS%20Wiki_files/jquery.js"></script>                         
+<script type="text/javascript" src="tello_driver%20-%20ROS%20Wiki_files/seesaw.js"></script> 
+<script type="text/javascript" src="tello_driver%20-%20ROS%20Wiki_files/rosversion.js"></script> 
+<!--script type="text/javascript" src="/custom/libraries/RGraph.common.core.js" ></script Used for metrics only, should be conditional, not at the top-->
+<!--script type="text/javascript" src="/custom/libraries/RGraph.bar.js" ></script same as above -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17821189-2']);
+  _gaq.push(['_setDomainName', 'wiki.ros.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="index,nofollow">
+
+<title>tello_driver - ROS Wiki</title>
+<script type="text/javascript" src="tello_driver%20-%20ROS%20Wiki_files/common.html"></script>
+
+<script type="text/javascript">
+<!--
+var search_hint = "Search";
+//-->
+</script>
+
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="tello_driver%20-%20ROS%20Wiki_files/common.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="screen" href="tello_driver%20-%20ROS%20Wiki_files/screen.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="print" href="tello_driver%20-%20ROS%20Wiki_files/print.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="projection" href="tello_driver%20-%20ROS%20Wiki_files/projection.css">
+
+<!-- css only for MS IE6/IE7 browsers -->
+<!--[if lt IE 8]>
+   <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/moin_static197/rostheme/css/msie.css">
+<![endif]-->
+
+
+
+
+<link rel="canonical" href="http://wiki.ros.org/tello_driver">
+
+<link rel="Start" href="http://wiki.ros.org/Documentation">
+<link rel="Alternate" title="Wiki Markup" href="http://wiki.ros.org/tello_driver?action=raw">
+<link rel="Alternate" media="print" title="Print View" href="http://wiki.ros.org/tello_driver?action=print">
+<link rel="Search" href="http://wiki.ros.org/FindPage">
+<link rel="Index" href="http://wiki.ros.org/TitleIndex">
+<link rel="Glossary" href="http://wiki.ros.org/WordIndex">
+<link rel="Help" href="http://wiki.ros.org/HelpOnFormatting">
+</head>
+
+<body dir="ltr" lang="en">
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="tello_driver%20-%20ROS%20Wiki_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5950817-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<script type="text/javascript">
+<!--// Initialize search form
+var f = document.getElementById('searchform');
+if(f) f.getElementsByTagName('label')[0].style.display = 'none';
+var e = document.getElementById('searchinput');
+if(e) {
+  searchChange(e);
+  searchBlur(e);
+}
+
+function handleSubmit() {
+  var f = document.getElementById('searchform');
+  var t = document.getElementById('searchinput');
+  var r = document.getElementById('real_searchinput');
+
+  //alert("handleSubmit "+ t.value);
+  if(t.value.match(/review/)) {
+    r.value = t.value;
+  } else {
+    //r.value = t.value + " -PackageReviewCategory -StackReviewCategory -M3Review -DocReview -ApiReview -HelpOn -BadContent -LocalSpellingWords";
+    r.value = t.value + " -PackageReviewCategory -StackReviewCategory -DocReview -ApiReview";
+  }
+  //return validate(f);
+}
+//-->
+</script>
+
+<div id="dpage">
+  <div id="dpage-inner">
+    <div id="header"><div id="topnav">
+
+<!-- Alert box -->
+<!-- To enable/disable the alert box, uncomment/comment the block below and update the content below the button. -->
+<!--
+    <div class="alert alert-info alert-dismissable" style="text-align: center;">
+<script>
+jQuery(function( $ ){
+    alert_box_name = 'roswiki_roscon'
+    state = localStorage.getItem(alert_box_name);
+    if (!state) {
+      localStorage.setItem(alert_box_name, 'open');
+    }
+    state = localStorage.getItem(alert_box_name);
+    if (state == 'closed') {
+        $( '#topnav .alert' ).hide();
+    }
+    $( '.close' ).click(function () {
+	console.log('in .close.click');
+        localStorage.setItem(alert_box_name, 'closed');
+        $( '#topnav .alert' ).hide();
+  });
+});
+</script>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <a href="http://roscon.ros.org">ROSCon 2017</a> will be in Vancouver, September 21-22! <br>
+      The last few years have sold out: register now and take advantage of discounted hotel rates</a>.
+    </div>
+-->
+<!-- End Alert box -->
+
+      <table id="topnav-table">
+        <tbody><tr>
+          <td width="300" valign="top"><a href="http://wiki.ros.org/"><img src="tello_driver%20-%20ROS%20Wiki_files/ros_org.png" alt="ros.org" width="238" height="51" border="0"></a></td>
+          <td width="500" valign="middle">
+            <a href="http://www.ros.org/about-ros">About</a>
+            |
+            <a href="http://wiki.ros.org/Support">Support</a>
+            |
+            <a href="http://discourse.ros.org/">Discussion Forum</a>
+            |
+            <a href="http://status.ros.org/">Service Status</a>
+            |
+            <a href="http://answers.ros.org/">Q&amp;A answers.ros.org</a>
+
+<!--<a href="http://roscon.ros.org/2016/"><img align="middle" style="padding-left: 15px;" src="http://ros.org/images/roscon_wiki_header.jpg" width="133" height="65" alt="ROSCon 2016" /></a>
+-->
+
+<!-- <a href="https://events.osrfoundation.org/ros-kong-2014/"><img align="middle" style="padding-left: 15px;" src="http://ros.org/images/ros_kong_2014_badge.png" width="133" height="38" alt="roskong" /></a>
+-->
+<!--a href="https://events.osrfoundation.org/ros-kong-2014/"><img align="middle" style="padding-left: 15px;" src="http://imgur.com/eMzUJVe.png" width="133" height="38" alt="roskong" /></a-->
+          </td>
+
+          <td valign="middle" align="right">
+
+<script language="Javascript">
+
+function Searchy(theButton){
+
+theForm = theButton.form;
+newID = theForm.input.value;
+theForm.q.value = newID;
+theForm.input.value=theForm.input.value
+
+}
+</script>
+
+
+<form action="https://www.ros.org/search/index.html" id="cse">
+  <div>
+    <label>Search:</label>
+    <input type="hidden" name="cx" value="005596761048178735851:_ejygd2ukbe">
+    <input type="hidden" name="cof" value="FORID:11;NB:1">
+    <input type="hidden" name="filter" value="0">
+    <input type="hidden" name="num" value="10">
+
+    <input type="hidden" name="ie" value="UTF-8">
+    <input type="text" name="input" id="input" autocomplete="on" style="width: 35%">
+    <input type="hidden" name="q" value="">
+    <input type="submit" name="sa" value="Submit" onclick="Searchy(this)">
+
+  </div>
+</form>
+
+         </td>
+      </tr>
+      <tr>
+        <td colspan="3" width="1024" height="53"><nobr><img src="tello_driver%20-%20ROS%20Wiki_files/menu_left.png" alt="" width="17" height="53"><a href="http://wiki.ros.org/"><img src="tello_driver%20-%20ROS%20Wiki_files/menu_documentation.png" alt="Documentation" width="237" height="53" border="0"></a><img src="tello_driver%20-%20ROS%20Wiki_files/menu_spacer.png" width="69" height="53"><a href="https://index.ros.org/packages"><img src="tello_driver%20-%20ROS%20Wiki_files/menu_browse_software.png" alt="Browse Software" width="268" height="53" border="0"></a><img src="tello_driver%20-%20ROS%20Wiki_files/menu_spacer.png" width="69" height="53"><a href="https://discourse.ros.org/c/general"><img src="tello_driver%20-%20ROS%20Wiki_files/menu_news.png" alt="News" width="84" height="53" border="0"></a><img src="tello_driver%20-%20ROS%20Wiki_files/menu_spacer.png" width="69" height="53"><a href="http://wiki.ros.org/ROS/Installation"><img src="tello_driver%20-%20ROS%20Wiki_files/menu_download.png" alt="Download" width="151" height="53" border="0"></a><img src="tello_driver%20-%20ROS%20Wiki_files/menu_right.png" width="60" height="53"></nobr></td>
+
+      </tr>
+    </tbody></table> <!-- topnav-table -->
+
+    </div> <!-- /#topav -->
+  </div> <!-- /#header -->
+
+
+<div id="header2">
+
+<ul id="pagelocation">
+<li><a class="backlink" href="http://wiki.ros.org/action/fullsearch/tello_driver?action=fullsearch&amp;context=180&amp;value=linkto%3A%22tello_driver%22" rel="nofollow" title="Click to do a full-text search for this title">tello_driver</a></li>
+</ul>
+
+<div id="locationline">
+</div>
+</div>
+
+<div id="sidebar">
+<div class="sidepanel">
+<h1>Wiki</h1>
+
+<ul id="navibar">
+<li class="wikilink"><a href="http://wiki.ros.org/Distributions">Distributions</a></li><li class="wikilink"><a href="http://wiki.ros.org/ROS/Installation">ROS/Installation</a></li><li class="wikilink"><a href="http://wiki.ros.org/ROS/Tutorials">ROS/Tutorials</a></li><li class="wikilink"><a href="http://wiki.ros.org/RecentChanges">RecentChanges</a></li><li class="current"><a href="http://wiki.ros.org/tello_driver">tello_driver</a></li>
+</ul>
+
+</div>
+<div class="sidepanel">
+<h1>Page</h1>
+<ul class="editbar"><li><span class="disabled">Immutable Page</span></li><li class="toggleCommentsButton" style="display:none;"><a href="#" class="nbcomment" onclick="toggleComments();return false;">Comments</a></li><li><a class="nbinfo" href="http://wiki.ros.org/action/info/tello_driver?action=info" rel="nofollow">Info</a></li><li><a class="nbattachments" href="http://wiki.ros.org/action/AttachFile/tello_driver?action=AttachFile" rel="nofollow">Attachments</a></li><li>
+<form class="actionsmenu" method="GET" action="/tello_driver">
+<div>
+    <label>More Actions:</label>
+    <select name="action" onchange="if ((this.selectedIndex != 0) &amp;&amp;
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="raw" selected="selected">Raw Text</option>
+<option value="print">Print View</option>
+<option value="RenderAsDocbook">Render as Docbook</option>
+<option value="show" disabled="disabled" class="disabled">Delete Cache</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="SpellCheck">Check Spelling</option>
+<option value="LikePages">Like Pages</option>
+<option value="LocalSiteMap">Local Site Map</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="RenamePage" disabled="disabled" class="disabled">Rename Page</option>
+<option value="CopyPage">Copy Page</option>
+<option value="DeletePage" disabled="disabled" class="disabled">Delete Page</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="MyPages">My Pages</option>
+<option value="show" disabled="disabled" class="disabled">Subscribe User</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="show" disabled="disabled" class="disabled">Remove Spam</option>
+<option value="show" disabled="disabled" class="disabled">Revert to this revision</option>
+<option value="PackagePages">Package Pages</option>
+<option value="SyncPages">Sync Pages</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="CreatePdfDocument">CreatePdfDocument</option>
+<option value="Load">Load</option>
+<option value="RawFile">RawFile</option>
+<option value="Save">Save</option>
+<option value="SlideShow">SlideShow</option>
+    </select>
+    <input type="submit" value="Do">
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li></ul>
+
+</div>
+<div class="sidepanel">
+<h1>User</h1>
+<ul id="username"><li><a href="http://wiki.ros.org/action/login/tello_driver?action=login" id="login" rel="nofollow">Login</a></li></ul>
+</div>
+</div>
+
+<div id="page" dir="ltr" lang="en">
+
+<div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><p class="line867"><span id="rosversion_selector" class="btn-group">
+<button id="kinetic" class="btn btn-default" onclick="Version({show:['boxturtle_and_newer', 'cturtle_and_newer', 'diamondback_and_newer', 'electric_and_newer', 'fuerte_and_newer', 'groovy_and_newer', 'hydro_and_newer', 'indigo_and_newer', 'jade_and_newer', 'kinetic_and_newer', 'kinetic_and_older', 'lunar_and_older', 'melodic_and_older', 'noetic_and_older', 'unstable_and_older', 'kinetic'], hide:['kinetic_and_newer', 'lunar_and_newer', 'melodic_and_newer', 'noetic_and_newer', 'unstable_and_newer', 'boxturtle_and_older', 'cturtle_and_older', 'diamondback_and_older', 'electric_and_older', 'fuerte_and_older', 'groovy_and_older', 'hydro_and_older', 'indigo_and_older', 'jade_and_older', 'kinetic_and_older', 'boxturtle', 'cturtle', 'diamondback', 'electric', 'fuerte', 'groovy', 'hydro', 'indigo', 'jade', 'lunar', 'melodic', 'noetic', 'unstable'], target_ros_distro:'kinetic'});this.style.color='#e6e6e6';this.style.background='#3e4f6e';var distro_button = document.getElementById('boxturtle');if (distro_button) {  distro_button.style.background='#e6e6e6';  distro_button.style.color='#3e4f6e';}var distro_button = document.getElementById('cturtle');if (distro_button) {  distro_button.style.background='#e6e6e6';  distro_button.style.color='#3e4f6e';}var distro_button = document.getElementById('diamondback');if (distro_button) {  distro_button.style.background='#e6e6e6';  distro_button.style.color='#3e4f6e';}var distro_button = document.getElementById('electric');if (distro_button) {  distro_button.style.background='#e6e6e6';  distro_button.style.color='#3e4f6e';}var distro_button = document.getElementById('fuerte');if (distro_button) {  distro_button.style.background='#e6e6e6';  distro_button.style.color='#3e4f6e';}var distro_button = document.getElementById('groovy');if (distro_button) {  distro_button.style.background='#e6e6e6';  distro_button.style.color='#3e4f6e';}var distro_button = document.getElementById('hydro');if (distro_button) {  distro_button.style.background='#e6e6e6';  distro_button.style.color='#3e4f6e';}var distro_button = document.getElementById('indigo');if (distro_button) {  distro_button.style.background='#e6e6e6';  distro_button.style.color='#3e4f6e';}var distro_button = document.getElementById('jade');if (distro_button) {  distro_button.style.background='#e6e6e6';  distro_button.style.color='#3e4f6e';}var distro_button = document.getElementById('lunar');if (distro_button) {  distro_button.style.background='#e6e6e6';  distro_button.style.color='#3e4f6e';}var distro_button = document.getElementById('melodic');if (distro_button) {  distro_button.style.background='#e6e6e6';  distro_button.style.color='#3e4f6e';}var distro_button = document.getElementById('noetic');if (distro_button) {  distro_button.style.background='#e6e6e6';  distro_button.style.color='#3e4f6e';}var distro_button = document.getElementById('unstable');if (distro_button) {  distro_button.style.background='#e6e6e6';  distro_button.style.color='#3e4f6e';}return false" style="color: rgb(230, 230, 230); background: rgb(62, 79, 110) none repeat scroll 0% 0%;"> kinetic </button>
+</span></p><div id="doc_status_link" style="margin-bottom:10px"><span style="text-align:left"><a href="javascript:toggleDocStatus()">Documentation Status</a></span></div><div id="doc_status" style="background:#CCCCCC;display:none;margin-top:0px;margin-bottom:0px;padding-top:0px"><ul style="padding-top:5px;margin-top:0px;margin-bottom:0px;padding-bottom:5px;"><li><b>kinetic:</b> <i>Documentation generated on May 13, 2020 at 03:30 AM</i><span style="font-size:10px"> (<a href="http://build.ros.org/view/Kdoc/job/Kdoc__tello_driver__ubuntu_xenial_amd64">doc job</a>).</span></li><br></ul></div><div class="version kinetic" style="display: block;"><div class="package-links"><strong>Package Links</strong><ul><li><strong><a href="http://docs.ros.org/kinetic/api/tello_driver/html">Code API</a></strong></li><li><strong><a href="http://docs.ros.org/kinetic/api/tello_driver/html/index-msg.html">Msg API</a></strong></li><li><a href="http://answers.ros.org/questions/scope:all/sort:activity-desc/tags:tello_driver/page:1/">FAQ</a></li><li><a href="http://docs.ros.org/kinetic/changelogs/tello_driver/changelog.html">Changelog</a></li><li><a class="nonexistent" href="http://wiki.ros.org/tello_driver/ChangeList">Change List</a></li><li><a class="nonexistent" href="http://wiki.ros.org/tello_driver/Reviews">Reviews</a></li></ul><script type="text/javascript" src="tello_driver%20-%20ROS%20Wiki_files/roswiki.js"></script><strong><a href="#" onclick="toggleExpandable('kineticdependencies-list'); return false;">Dependencies</a> (13)</strong><br><div id="kineticdependencies-list" style="display:none"><ul><li><a href="http://wiki.ros.org/camera_info_manager_py?distro=kinetic">camera_info_manager_...</a></li><li><a href="http://wiki.ros.org/catkin?distro=kinetic">catkin</a></li><li><a href="http://wiki.ros.org/codec_image_transport?distro=kinetic">codec_image_transpor...</a></li><li><a href="http://wiki.ros.org/cv_bridge?distro=kinetic">cv_bridge</a></li><li><a href="http://wiki.ros.org/dynamic_reconfigure?distro=kinetic">dynamic_reconfigure</a></li><li><a href="http://wiki.ros.org/geometry_msgs?distro=kinetic">geometry_msgs</a></li><li><a href="http://wiki.ros.org/image_transport?distro=kinetic">image_transport</a></li><li><a href="http://wiki.ros.org/message_generation?distro=kinetic">message_generation</a></li><li><a href="http://wiki.ros.org/message_runtime?distro=kinetic">message_runtime</a></li><li><a href="http://wiki.ros.org/nav_msgs?distro=kinetic">nav_msgs</a></li><li><a href="http://wiki.ros.org/rospy?distro=kinetic">rospy</a></li><li><a href="http://wiki.ros.org/sensor_msgs?distro=kinetic">sensor_msgs</a></li><li><a href="http://wiki.ros.org/std_msgs?distro=kinetic">std_msgs</a></li></ul></div><script type="text/javascript" src="tello_driver%20-%20ROS%20Wiki_files/roswiki.js"></script><strong><a href="#" onclick="toggleExpandableJenkins('stack-kineticjenkins-list'); return false;">Jenkins jobs</a> (7)</strong><br><div id="stack-kineticjenkins-list" style="display:none"><ul><li><a href="http://build.ros.org/view/Ksrc_uX/job/Ksrc_uX__tello_driver__ubuntu_xenial__source">source ubuntu xenial</a></li><li><a href="http://build.ros.org/view/Kbin_uX64/job/Kbin_uX64__tello_driver__ubuntu_xenial_amd64__binary">binary ubuntu xenial amd64</a></li><li><a href="http://build.ros.org/view/Kbin_uX32/job/Kbin_uX32__tello_driver__ubuntu_xenial_i386__binary">binary ubuntu xenial i386</a></li><li><a href="http://build.ros.org/view/Kbin_uxhf_uXhf/job/Kbin_uxhf_uXhf__tello_driver__ubuntu_xenial_armhf__binary">binary ubuntu xenial armhf</a></li><li><a href="http://build.ros.org/view/Kbin_uxv8_uXv8/job/Kbin_uxv8_uXv8__tello_driver__ubuntu_xenial_arm64__binary">binary ubuntu xenial arm64</a></li><li><a href="http://build.ros.org/view/Kdev/job/Kdev__tello_driver__ubuntu_xenial_amd64">devel ubuntu xenial amd64</a></li><li><a href="http://build.ros.org/view/Kdoc/job/Kdoc__tello_driver__ubuntu_xenial_amd64">doc</a></li></ul></div></div><h1>Package Summary</h1><p></p><div class="dropdown" style="display: inline-block; margin-bottom: 8px; margin-right: 4px;"><span class="badge" style="background-color: #5cb85c;"><span class="glyphicon glyphicon-ok" style="color: white;"></span> Released </span></div><div class="dropdown" style="display: inline-block; margin-bottom: 8px;"><button class="badge dropdown-toggle" style="background-color: #5cb85c; border: none;" data-toggle="dropdown" title="No test statistics available for this package."><span class="glyphicon glyphicon-ok" style="color: white;"></span> Continuous Integration</button>
+</div>
+<div class="dropdown" style="display: inline-block; margin-bottom: 8px; margin-right: 4px;"><span class="badge" style="background-color: #5cb85c;"><span class="glyphicon glyphicon-ok" style="color: white;"></span> Documented </span></div><p id="package-info">&gt;This package provides a ROS interface for the TelloPy library.
+  Development of this ROS package pursues not to modify the TelloPy library, 
+  instead apply any modification or addition to the ros_driver package in an encapsulated manner.</p><p id="package-info-1"></p><ul><li>Maintainer status: developed</li><li>Maintainer: Jordy van Appeven &lt;jordyvanappeven AT gmail DOT com&gt;</li><li>Author: Jordy van Appeven &lt;jordyvanappeven AT gmail DOT com&gt;</li><li>License: Apache2</li><li>Bug / feature tracker:  <a href="https://github.com/appie-17/tello_driver/issues">https://github.com/appie-17/tello_driver/issues</a></li><li>Source: git <a href="https://github.com/appie-17/tello_driver">https://github.com/appie-17/tello_driver.git</a> (branch: 0.3.2)</li></ul></div><p class="line862"> </p><div class="table-of-contents"><p class="table-of-contents-heading">Contents</p><ol><li>
+<a href="#tello_driver-1">tello_driver</a><ol><li>
+<a href="#Overview">Overview</a><ol><li>
+<a href="#Installation">Installation</a><ol><li>
+<a href="#ROS_distribution">ROS distribution</a></li><li>
+<a href="#Build_from_source">Build from source</a></li></ol></li><li>
+<a href="#Launch">Launch</a></li></ol></li><li>
+<a href="#Nodes">Nodes</a><ol><li>
+<a href="#tello_driver_node">tello_driver_node</a><ol><li>
+<a href="#Subscribed_topics">Subscribed topics</a></li><li>
+<a href="#Published_topics">Published topics</a></li><li>
+<a href="#Parameters">Parameters</a></li></ol></li><li>
+<a href="#gamepad_teleop_node">gamepad_teleop_node</a><ol><li>
+<a href="#Subscribed_topics-1">Subscribed topics</a></li><li>
+<a href="#Published_topics-1">Published topics</a></li><li>
+<a href="#Services">Services</a></li><li>
+<a href="#Parameters-1">Parameters</a></li></ol></li><li>
+<a href="#joy_node">joy_node</a><ol><li>
+<a href="#Subscribed_topics-2">Subscribed topics</a></li><li>
+<a href="#Published_topics-2">Published topics</a></li><li>
+<a href="#Services-1">Services</a></li><li>
+<a href="#Parameters-2">Parameters</a></li></ol></li></ol></li><li>
+<a href="#Troubleshooting">Troubleshooting</a></li><li>
+<a href="#Notes">Notes</a></li><li>
+<a href="#WIP">WIP</a></li><li>
+<a href="#License">License</a></li></ol></li></ol></div><p class="line874"> <span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span></p><p class="line867">Use GitHub to <a href="https://github.com/appie-17/tello_driver/issues/new">report bugs or submit feature requests</a>. [<a href="https://github.com/appie-17/tello_driver/issues?page=1&amp;state=open">View active issues</a>]<br>
+  <span class="anchor" id="line-4"></span><span class="anchor" id="line-5"></span></p><p class="line867">
+</p><h1 id="tello_driver-1">tello_driver</h1>
+<span class="anchor" id="line-6"></span><p class="line867">
+</p><h2 id="Overview">Overview</h2>
+<span class="anchor" id="line-7"></span><p class="line862">Communicating with the Tello drone can be done either using official <a class="https" href="https://dl-cdn.ryzerobotics.com/downloads/Tello/Tello%20SDK%202.0%20User%20Guide.pdf">Tello SDK</a>
+ or one of the unofficial libraries. The unofficial libraries originated
+ from the reverse-engineering the raw packages broadcasted by the Tello.
+ This ROS package is build on top of the unofficial <a class="https" href="https://github.com/hanyazou/TelloPy">TelloPy</a> library. The <a class="https" href="https://github.com/hanyazou/TelloPy">TelloPy</a> library is used at this moment since it offers more functionalities than the official <a class="https" href="https://dl-cdn.ryzerobotics.com/downloads/Tello/Tello%20SDK%202.0%20User%20Guide.pdf">Tello SDK</a> or any other unofficial library. <span class="anchor" id="line-8"></span><span class="anchor" id="line-9"></span></p><p class="line862">Developing of the tello_driver ROS package is inspired by <a class="https" href="https://github.com/anqixu/tello_driver">tello_driver</a>,
+ which by now diverged considerately from the original work. 
+Furthermore, development of this ROS package pursues not to modify the <a class="https" href="https://github.com/hanyazou/TelloPy">TelloPy</a>
+ library, but instead apply any modification or addition to the 
+ros_driver package in an encapsulated manner. This prevents breaking 
+functionalities when updating the <a class="https" href="https://github.com/hanyazou/TelloPy">TelloPy</a> library. <span class="anchor" id="line-10"></span><span class="anchor" id="line-11"></span></p><p class="line867">
+</p><h3 id="Installation">Installation</h3>
+<span class="anchor" id="line-12"></span><p class="line867">
+</p><h4 id="ROS_distribution">ROS distribution</h4>
+<span class="anchor" id="line-13"></span><p class="line874">Binary release from the ROS repository: <span class="anchor" id="line-14"></span><span class="anchor" id="line-15"></span></p><ul><li>Kinetic <span class="anchor" id="line-16"></span><span class="anchor" id="line-17"></span><span class="anchor" id="line-18"></span><pre><span class="anchor" id="line-1-1"></span>$ sudo apt install ros-kinetic-tello-driver</pre><span class="anchor" id="line-19"></span><span class="anchor" id="line-20"></span></li></ul><p class="line867">
+</p><h4 id="Build_from_source">Build from source</h4>
+<span class="anchor" id="line-21"></span><ul><li style="list-style-type:none"><span class="anchor" id="line-22"></span><span class="anchor" id="line-23"></span><pre><span class="anchor" id="line-1-2"></span>$ cd &lt;CATKIN_WS/SRC&gt;</pre><span class="anchor" id="line-24"></span><span class="anchor" id="line-25"></span><span class="anchor" id="line-26"></span><pre><span class="anchor" id="line-1-3"></span>$ git clone --recursive https://github.com/appie-17/tello_driver.git</pre><span class="anchor" id="line-27"></span></li><li style="list-style-type:none"><span class="anchor" id="line-28"></span><span class="anchor" id="line-29"></span><pre><span class="anchor" id="line-1-4"></span>$ cd ..</pre><span class="anchor" id="line-30"></span><span class="anchor" id="line-31"></span><span class="anchor" id="line-32"></span><pre><span class="anchor" id="line-1-5"></span>$ catkin_make</pre><span class="anchor" id="line-33"></span><span class="anchor" id="line-34"></span><span class="anchor" id="line-35"></span><pre><span class="anchor" id="line-1-6"></span>$ source devel/setup.bash</pre><span class="anchor" id="line-36"></span><span class="anchor" id="line-37"></span></li></ul><p class="line867">
+</p><h3 id="Launch">Launch</h3>
+<span class="anchor" id="line-38"></span><ul><li>Turn on Tello drone <span class="anchor" id="line-39"></span></li><li><p class="line862">Connect to drone's <a class="nonexistent" href="http://wiki.ros.org/WiFi">WiFi</a> access point (<tt>TELLO_XXXXXX</tt>) <span class="anchor" id="line-40"></span><span class="anchor" id="line-41"></span><span class="anchor" id="line-42"></span></p><pre><span class="anchor" id="line-1-7"></span> $ roslaunch tello_driver tello_node.launch</pre><span class="anchor" id="line-43"></span><span class="anchor" id="line-44"></span></li></ul><p class="line867">
+</p><h2 id="Nodes">Nodes</h2>
+<span class="anchor" id="line-45"></span><p class="line867">
+</p><h3 id="tello_driver_node">tello_driver_node</h3>
+<span class="anchor" id="line-46"></span><p class="line862">Main node running as interface for the <a class="https" href="https://github.com/hanyazou/TelloPy">TelloPy</a> library <span class="anchor" id="line-47"></span><span class="anchor" id="line-48"></span></p><p class="line867">
+</p><h4 id="Subscribed_topics">Subscribed topics</h4>
+<span class="anchor" id="line-49"></span><ul><li><p class="line891"><tt>/tello/cmd_vel</tt> <a class="http" href="http://docs.ros.org/api/geometry_msgs/html/msg/Twist.html">geometry_msgs/Twist</a> <span class="anchor" id="line-50"></span></p></li><li><p class="line891"><tt>/tello/emergency</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a> <span class="anchor" id="line-51"></span></p></li><li><p class="line891"><tt>/tello/fast_mode</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a> <span class="anchor" id="line-52"></span></p></li><li><p class="line891"><tt>/tello/flattrim</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a> <span class="anchor" id="line-53"></span></p></li><li><p class="line891"><tt>/tello/flip</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/UInt8.html">std_msgs/Uint8</a> <span class="anchor" id="line-54"></span></p></li><li><p class="line891"><tt>/tello/land</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a> <span class="anchor" id="line-55"></span></p></li><li><p class="line891"><tt>/tello/palm_land</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a> <span class="anchor" id="line-56"></span></p></li><li><p class="line891"><tt>/tello/takeoff</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a> <span class="anchor" id="line-57"></span></p></li><li><p class="line891"><tt>/tello/throw_takeoff</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a> <span class="anchor" id="line-58"></span><span class="anchor" id="line-59"></span></p></li></ul><p class="line867">
+</p><h4 id="Published_topics">Published topics</h4>
+<span class="anchor" id="line-60"></span><ul><li><p class="line891"><tt>/tello/camera/camera_info</tt> <a class="http" href="http://docs.ros.org/api/sensor_msgs/html/msg/CameraInfo.html">sensor_msgs/CameraInfo</a> <span class="anchor" id="line-61"></span></p></li><li><p class="line891"><tt>/tello/image_raw</tt> <a class="http" href="http://docs.ros.org/api/sensor_msgs/html/msg/Image.html">sensor_msgs/Image</a> <span class="anchor" id="line-62"></span></p></li><li><p class="line891"><tt>/tello/imag/raw/h264</tt> <a class="https" href="https://github.com/tilk/h264_image_transport/blob/master/msg/H264Packet.msg">h264_image_transport/H264Packet</a> <span class="anchor" id="line-63"></span></p></li><li><p class="line891"><tt>/tello/odom</tt> <a class="http" href="http://docs.ros.org/api/nav_msgs/html/msg/Odometry.html">nav_msgs/Odometry</a> <span class="anchor" id="line-64"></span></p></li><li><p class="line891"><tt>/tello/imu</tt> <a class="http" href="http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html">sensor_msgs/Imu</a> <span class="anchor" id="line-65"></span></p></li><li><p class="line891"><tt>/tello/status</tt> <a class="https" href="https://github.com/appie-17/tello_driver/blob/development/msg/TelloStatus.msg">tello_driver/TelloStatus</a> <span class="anchor" id="line-66"></span><span class="anchor" id="line-67"></span></p></li></ul><p class="line867">
+</p><h4 id="Parameters">Parameters</h4>
+<span class="anchor" id="line-68"></span><ul><li><p class="line891"><tt>~/tello_driver_node/connect_timeout_sec</tt> <span class="anchor" id="line-69"></span></p></li><li><p class="line891"><tt>~/tello_driver_node/fixed_video_rate</tt> <span class="anchor" id="line-70"></span></p></li><li><p class="line891"><tt>~/tello_driver_node/local_cmd_client_port</tt> <span class="anchor" id="line-71"></span></p></li><li><p class="line891"><tt>~/tello_driver_node/local_vid_server_port</tt> <span class="anchor" id="line-72"></span></p></li><li><p class="line891"><tt>~/tello_driver_node/stream_h264_video</tt> <span class="anchor" id="line-73"></span></p></li><li><p class="line891"><tt>~/tello_driver_node/tello_cmd_server_port</tt> <span class="anchor" id="line-74"></span></p></li><li><p class="line891"><tt>~/tello_driver_node/tello_ip</tt> <span class="anchor" id="line-75"></span></p></li><li><p class="line891"><tt>~/tello_driver_node/vel_cmd_scale</tt> <span class="anchor" id="line-76"></span></p></li><li><p class="line891"><tt>~/tello_driver_node/video_req_sps_hz</tt> <span class="anchor" id="line-77"></span></p></li><li><p class="line891"><tt>~/tello_driver_node/altitude_limit</tt> <span class="anchor" id="line-78"></span></p></li><li><p class="line891"><tt>~/tello_driver_node/attitude_limit</tt> <span class="anchor" id="line-79"></span></p></li><li><p class="line891"><tt>~/tello_driver_node/low_bat_threshold</tt> <span class="anchor" id="line-80"></span><span class="anchor" id="line-81"></span></p></li></ul><p class="line867">
+</p><h3 id="gamepad_teleop_node">gamepad_teleop_node</h3>
+<span class="anchor" id="line-82"></span><p class="line862">Converting gamepad input controls from <tt>joy_node</tt> to commands for <tt>tello_driver_node</tt> <span class="anchor" id="line-83"></span><span class="anchor" id="line-84"></span></p><p class="line867">
+</p><h4 id="Subscribed_topics-1">Subscribed topics</h4>
+<span class="anchor" id="line-85"></span><ul><li><p class="line891"><tt>/joy</tt> <a class="http" href="http://docs.ros.org/api/sensor_msgs/html/msg/Joy.html">sensor_msgs/Joy</a> <span class="anchor" id="line-86"></span></p></li><li><p class="line891"><tt>/tello/agent_cmd_vel_in</tt> <a class="http" href="http://docs.ros.org/api/geometry_msgs/html/msg/Twist.html">geometry_msgs/Twist</a> <span class="anchor" id="line-87"></span><span class="anchor" id="line-88"></span></p></li></ul><p class="line867">
+</p><h4 id="Published_topics-1">Published topics</h4>
+<span class="anchor" id="line-89"></span><ul><li><p class="line891"><tt>/tello/cmd_vel</tt> <a class="http" href="http://docs.ros.org/api/geometry_msgs/html/msg/Twist.html">geometry_msgs/Twist</a> <span class="anchor" id="line-90"></span></p></li><li><p class="line891"><tt>/tello/emergency</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a> <span class="anchor" id="line-91"></span></p></li><li><p class="line891"><tt>/tello/fast_mode</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a> <span class="anchor" id="line-92"></span></p></li><li><p class="line891"><tt>/tello/flattrim</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a> <span class="anchor" id="line-93"></span></p></li><li><p class="line891"><tt>/tello/flip</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/UInt8.html">std_msgs/Uint8</a> <span class="anchor" id="line-94"></span></p></li><li><p class="line891"><tt>/tello/land</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a> <span class="anchor" id="line-95"></span></p></li><li><p class="line891"><tt>/tello/palm_land</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a> <span class="anchor" id="line-96"></span></p></li><li><p class="line891"><tt>/tello/takeoff</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a> <span class="anchor" id="line-97"></span></p></li><li><p class="line891"><tt>/tello/throw_takeoff</tt> <a class="http" href="http://docs.ros.org/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a> <span class="anchor" id="line-98"></span><span class="anchor" id="line-99"></span></p></li></ul><p class="line867">
+</p><h4 id="Services">Services</h4>
+<span class="anchor" id="line-100"></span><p class="line874">None <span class="anchor" id="line-101"></span><span class="anchor" id="line-102"></span></p><p class="line867">
+</p><h4 id="Parameters-1">Parameters</h4>
+<span class="anchor" id="line-103"></span><p class="line867">
+</p><h3 id="joy_node">joy_node</h3>
+<span class="anchor" id="line-104"></span><p class="line862">Receive input from gamepad controller and publish into <tt>sensor_msgs/Joy</tt> message <span class="anchor" id="line-105"></span><span class="anchor" id="line-106"></span></p><p class="line867">
+</p><h4 id="Subscribed_topics-2">Subscribed topics</h4>
+<span class="anchor" id="line-107"></span><p class="line874">None <span class="anchor" id="line-108"></span><span class="anchor" id="line-109"></span></p><p class="line867">
+</p><h4 id="Published_topics-2">Published topics</h4>
+<span class="anchor" id="line-110"></span><ul><li><p class="line891"><tt>/joy</tt> <a class="http" href="http://docs.ros.org/api/sensor_msgs/html/msg/Joy.html">sensor_msgs/Joy</a> <span class="anchor" id="line-111"></span><span class="anchor" id="line-112"></span></p></li></ul><p class="line867">
+</p><h4 id="Services-1">Services</h4>
+<span class="anchor" id="line-113"></span><p class="line874">None <span class="anchor" id="line-114"></span><span class="anchor" id="line-115"></span></p><p class="line867">
+</p><h4 id="Parameters-2">Parameters</h4>
+<span class="anchor" id="line-116"></span><ul><li><p class="line891"><tt>~/joy_node/deadzone</tt> <span class="anchor" id="line-117"></span></p></li><li><p class="line891"><tt>~/joy_node/dev</tt> <span class="anchor" id="line-118"></span><span class="anchor" id="line-119"></span></p></li></ul><p class="line867">
+</p><h2 id="Troubleshooting">Troubleshooting</h2>
+<span class="anchor" id="line-120"></span><ul><li><p class="line891"><strong>No more video output after reconnect</strong>   <span class="anchor" id="line-121"></span></p></li><li style="list-style-type:none"><p class="line862">Relaunch the <tt>tello_driver_node</tt> to continue the video stream after <a class="nonexistent" href="http://wiki.ros.org/WiFi">WiFi</a> reconnection. Only an issue when using PyAV to decode h264 video instead of ROS <a class="https" href="https://github.com/yoshito-n-students/codec_image_transport">codec_image_transport</a>. <span class="anchor" id="line-122"></span><span class="anchor" id="line-123"></span></p></li></ul><p class="line867">
+</p><h2 id="Notes">Notes</h2>
+<span class="anchor" id="line-124"></span><ul><li><p class="line891"><strong>Stream raw video</strong> <span class="anchor" id="line-125"></span><span class="anchor" id="line-126"></span></p></li><li class="gap" style="list-style-type:none"><p class="line862">Depends on <a class="https" href="https://github.com/mikeboers/PyAV">PyAV</a> package: <span class="anchor" id="line-127"></span></p></li><li style="list-style-type:none"><span class="anchor" id="line-128"></span><span class="anchor" id="line-129"></span><pre><span class="anchor" id="line-1-8"></span>$ pip install av --user</pre><span class="anchor" id="line-130"></span></li><li style="list-style-type:none">Installation of PyAV on Ubuntu 16.04 requires ffmpeg of at least version 3: <span class="anchor" id="line-131"></span><span class="anchor" id="line-132"></span><span class="anchor" id="line-133"></span><span class="anchor" id="line-134"></span><pre><span class="anchor" id="line-1-9"></span>$ sudo add-apt-repository ppa:jonathonf/ffmpeg-3   
+<span class="anchor" id="line-2-1"></span>$ sudo apt update &amp;&amp; sudo apt install ffmpeg</pre><span class="anchor" id="line-135"></span><span class="anchor" id="line-136"></span></li></ul><p class="line867">
+</p><h2 id="WIP">WIP</h2>
+<span class="anchor" id="line-137"></span><p class="line867">
+</p><h2 id="License">License</h2>
+<span class="anchor" id="line-138"></span><p class="line867"><span class="anchor" id="line-139"></span></p><p class="line867"><span class="anchor" id="line-140"></span><span class="anchor" id="bottom"></span></p></div></div>
+<div id="pagebottom"></div>
+</div>
+
+<p id="pageinfo" class="info" dir="ltr" lang="en">Wiki: tello_driver  (last edited 2019-10-24 20:32:45 by <span title="Jordy van Appeven @ 137.120.161.44[137.120.161.44]"><a class="nonexistent" href="http://wiki.ros.org/Jordy%20van%20Appeven" title="Jordy van Appeven @ 137.120.161.44[137.120.161.44]">Jordy van Appeven</a></span>)</p>
+
+
+
+
+<div style="margin-top: 9px;" class="footer">
+Except where otherwise noted, the ROS wiki is licensed under the <br><a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>
+<hr style="margin-top: 10px;">
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+<a href="http://www.osrfoundation.org/"><img style="margin-top: -1px;" src="tello_driver%20-%20ROS%20Wiki_files/brought_by_horiz.png"><p></p></a>
+  </div>
+</div>
+</div>
+
+  </div> <!-- /#dpage-inner, /#dpage -->
+
+
+
+
+
+</body></html>

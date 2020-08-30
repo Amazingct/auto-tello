@@ -1,0 +1,2 @@
+system:tello_driver
+-DCATKIN_DEVEL_PREFIX=/home/amazing/Desktop/PROJECTS_AND_CODES/ROS/tello_ws/devel -DCMAKE_INSTALL_PREFIX=/home/amazing/Desktop/PROJECTS_AND_CODES/ROS/tello_ws/install -G Unix Makefiles

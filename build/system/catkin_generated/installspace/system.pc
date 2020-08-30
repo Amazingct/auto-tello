@@ -1,0 +1,8 @@
+prefix=/home/amazing/Desktop/PROJECTS_AND_CODES/ROS/tello_ws/install
+
+Name: system
+Description: Description of system
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
